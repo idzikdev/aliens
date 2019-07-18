@@ -1,0 +1,76 @@
+<app-header>
+  <p levels>Ships</p>
+  <div content>
+    <p>Ship</p>
+  </div>
+</app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table *ngIf="ships && ships.length>0; else noShipsInfo" class="cs-table table table-striped">
+        <thead>
+        <tr>
+          <th>size</th>
+          <th>name</th>
+          <th>maxSpeed</th>
+          <th>weaponPower</th>
+          <th>picture</th>
+          <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ship of ships" class="row-ship" (click)="gotoShipDetails(ship)">
+          <td appImportant>{{ship?.size}}</td>
+          <td>{{ship?.name}}</td>
+          <td>{{ship?.maxSpeed | units}}</td>
+          <td>{{ship?.weaponPower | units }}</td>
+          <td><img width="150" height="100" src="http://localhost:8010/ships/images/v1/{{ship.jpg2}}" alt="ship"></td>
+          <td (click)="removeShip(ship,$event)">(REMOVE)</td>
+        </tr>
+        </tbody>
+      </table>
+      <ng-template #noShipsInfo>
+        <div class="no-aliens-info">
+          <p>Currently no ships</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<p class="data-header">Add ship</p>
+<div class="data-container">
+  <form [formGroup]="shipForm">
+    <div class="row form-group">
+      <div class="col-sm-4">
+        <label>Size</label>
+        <input formControlName="size" type="text" class="form-control" placeholder="size">
+        <p *ngIf="!shipForm.get('size').valid && shipForm.get('size').dirty" class="error">This field is required</p>
+      </div>
+      <div class="col-sm-4">
+        <label>Name</label>
+        <input formControlName="name" type="text" class="form-control" placeholder="name">
+        <p *ngIf="!shipForm.get('name').valid && shipForm.get('name').dirty" class="error">This field is required</p>
+      </div>
+      <div class="col-sm-4">
+        <label>Max Speed</label>
+        <input formControlName="maxspeed" type="text" class="form-control" placeholder="maxspeed">
+        <p *ngIf="!shipForm.get('maxspeed').valid && shipForm.get('maxspeed').dirty" class="error">This field is required</p>
+      </div>
+      <div class="col-sm-4">
+        <label>Weapon power</label>
+        <input formControlName="weaponpower" type="text" class="form-control" placeholder="weaponpower">
+        <p *ngIf="!shipForm.get('weaponpower').valid && shipForm.get('weaponpower').dirty" class="error">This field is required</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <button [disabled]="shipForm.invalid" (click)="addShip()" type="submit" class="btn btn-primary float-right">Add ship</button>
+        <button (click)="shipForm.reset()" class="btn btn-default float-right">Reset</button>
+      </div>
+    </div>
+  </form>
+  <pre> {{shipForm.value | json}}</pre>
+  <pre> stan walidacji size: {{shipForm.get('size').valid | json}}</pre>
+  <pre> stan walidacji name: {{shipForm.get('name').valid | json}}</pre>
+  <pre> stan walidacji maxspeed: {{shipForm.get('maxspeed').valid | json}}</pre>
+</div>
