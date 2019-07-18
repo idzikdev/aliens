@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AliensService {
-  private apiUrl = 'http://localhost:8010/aliens/v1';
+  private apiUrl = 'http://54.37.138.230:8010/aliens/v1';
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import {Ship} from './models/ship';
   providedIn: 'root'
 })
 export class ShipsService {
-  private apiUrl = 'http://localhost:8010/ships/v1';
+  private apiUrl = 'http://54.37.138.230:8010/ships/v1';
 
   constructor(private http: HttpClient) { }
 
