@@ -28,8 +28,13 @@ export class ShipListComponent implements OnInit {
     return this.formBuilder.group({
       size: ['', Validators.required],
       name: ['', Validators.required],
-      maxspeed: ['', Validators.required],
-      weaponpower: ['', Validators.required],
+      maxSpeed: ['0', Validators.required],
+      weaponPower: ['0', Validators.required],
+      weaponRangeKm: ['0', Validators.required],
+      weaponRangeUnits: ['0', Validators.required],
+      damageCapacity: ['0', Validators.required],
+      downedPoints: ['0', Validators.required],
+      destroyedPoints: ['0', Validators.required],
     });
   }
 

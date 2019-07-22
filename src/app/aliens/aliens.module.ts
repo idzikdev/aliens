@@ -7,9 +7,13 @@ import {RouterModule} from '@angular/router';
 import {AlienResolveService} from './alien-resolve.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ShipListComponent } from './ship-list/ship-list.component';
+import { ShipDetailsComponent } from './ship-details/ship-details.component';
+import {ShipResolveService} from './ship-resolve.service';
+import { SoldierListComponent } from './soldier-list/soldier-list.component';
+import { SoldierDetailsComponent } from './soldier-details/soldier-details.component';
 
 @NgModule({
-  declarations: [AlienListComponent, AlienDetailsComponent, ShipListComponent],
+  declarations: [AlienListComponent, AlienDetailsComponent, ShipListComponent, ShipDetailsComponent, ShipDetailsComponent, SoldierListComponent, SoldierDetailsComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -17,6 +21,6 @@ import { ShipListComponent } from './ship-list/ship-list.component';
     ReactiveFormsModule
   ],
   exports: [AlienListComponent],
-  providers: [AlienResolveService]
+  providers: [AlienResolveService, ShipResolveService]
 })
 export class AliensModule { }

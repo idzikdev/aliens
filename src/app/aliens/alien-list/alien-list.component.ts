@@ -3,6 +3,7 @@ import {Alien} from '../models/alien';
 import {AliensService} from '../aliens.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-alien-list',
@@ -26,7 +27,7 @@ export class AlienListComponent implements OnInit {
 
   buildAlienForm() {
     return this.formBuilder.group({
-      breed: ['sectoid', Validators.required],
+      breed: ['breed', Validators.required],
       rank: ['soldier', Validators.required],
       health: ['0', Validators.required],
       energy: ['0', Validators.required],

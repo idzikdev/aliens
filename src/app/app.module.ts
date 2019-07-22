@@ -9,6 +9,10 @@ import {CoreModule} from './core/core.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {AliensRoutingModule} from './aliens/aliens-routing.module';
+import {ShipsRoutingModule} from './aliens/ship-routing/ship-routing.module';
+import {SoldierResolveService} from './aliens/soldier-resolve.service';
+import {SoldierRoutingModule} from './aliens/soldier-routing/soldier-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import {AliensRoutingModule} from './aliens/aliens-routing.module';
     CoreModule,
     RouterModule,
     AppRoutingModule,
-    AliensRoutingModule
+    AliensRoutingModule,
+    ShipsRoutingModule,
+    SoldierRoutingModule
   ],
   providers: [AliensService],
   bootstrap: [AppComponent]

@@ -54,12 +54,6 @@ export class AlienDetailsComponent implements OnInit {
   }
 
   loadAlien() {
-    // to id to jest id z aliens-routing.module
-    // const idek = +this.route.snapshot.params.id;
-    // this.alienService.getAlien(idek).subscribe((alien) => {
-    //   this.alien = alien;
-    // });
-    // pole alien pochodzi z Resolvera
     this.alien = this.route.snapshot.data.alien;
   }
 
