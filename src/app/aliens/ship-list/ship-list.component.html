@@ -99,6 +99,20 @@
           field is required</p>
       </div>
     </div>
+    <div class="row form-group">
+      <div class="col-md-4">
+        <label>Escape Time</label>
+        <input formControlName="escapeTime" type="text" class="form-control" placeholder="escapetime">
+        <p *ngIf="!shipForm.get('escapeTime').valid && shipForm.get('escapeTime').dirty" class="error">This
+          field is required</p>
+      </div>
+      <div class="col-md-4">
+        <label>Firing Interval</label>
+        <input formControlName="firingInterval" type="text" class="form-control" placeholder="firinginterval">
+        <p *ngIf="!shipForm.get('firingInterval').valid && shipForm.get('firingInterval').dirty" class="error">This field is
+          required</p>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12">
         <button [disabled]="shipForm.invalid" (click)="addShip()" type="submit" class="btn btn-primary float-right">

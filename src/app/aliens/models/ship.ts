@@ -9,6 +9,8 @@ export interface Ship {
   damageCapacity: number;
   downedPoints: number;
   destroyedPoints: number;
+  escapeTime: number;
+  firingInterval: number;
   jpg0: string;
   jpg1: string;
   jpg2: string;

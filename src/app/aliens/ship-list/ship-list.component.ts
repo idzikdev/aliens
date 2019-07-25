@@ -35,6 +35,8 @@ export class ShipListComponent implements OnInit {
       damageCapacity: ['0', Validators.required],
       downedPoints: ['0', Validators.required],
       destroyedPoints: ['0', Validators.required],
+      escapeTime: ['0', Validators.required],
+      firingInterval: ['0', Validators.required],
     });
   }
 

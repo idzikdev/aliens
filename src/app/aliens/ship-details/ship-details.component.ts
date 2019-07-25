@@ -35,6 +35,8 @@ export class ShipDetailsComponent implements OnInit {
       damageCapacity: [this.ship.damageCapacity, Validators.required],
       downedPoints: [this.ship.downedPoints, Validators.required],
       destroyedPoints: [this.ship.destroyedPoints, Validators.required],
+      escapeTime: [this.ship.escapeTime, Validators.required],
+      firingInterval: [this.ship.firingInterval, Validators.required],
     });
   }
 
