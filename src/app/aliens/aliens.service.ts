@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Alien} from './models/alien';
 import {map} from 'rxjs/operators';
@@ -9,6 +9,7 @@ import {map} from 'rxjs/operators';
 })
 export class AliensService {
   private apiUrl = 'http://54.37.138.230:8010/aliens/v1';
+  private apiUrlRandomAlien = 'http://54.37.138.230:8010/tools/add/alien/v1/';
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,12 @@ export class AliensService {
 
   addAlien(data): Observable<Alien> {
     return this.http.post(this.apiUrl, data)
+      .pipe(map((res) => res as Alien));
+  }
+
+  addRandomAlien(breed: string , rank: string): Observable<Alien> {
+    const httpParams = new HttpParams().set('race', breed).set('rank', rank);
+    return this.http.post(this.apiUrlRandomAlien, httpParams)
       .pipe(map((res) => res as Alien));
   }
 
