@@ -9,7 +9,7 @@
   <form [formGroup]="alienForm">
     <div class="row form-group">
       <div class="col-md-2">
-        <label>Breed</label>
+        <label>Race</label>
         <input formControlName="breed" type="text" class="form-control" placeholder="breed">
         <p *ngIf="!alienForm.get('breed').valid && alienForm.get('breed').dirty" class="error">This field is required</p>
       </div>

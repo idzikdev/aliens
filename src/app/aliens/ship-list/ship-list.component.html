@@ -1,9 +1,64 @@
 <app-header>
-  <p levels>Ships</p>
+  <p levels>Ships menu</p>
   <div content>
-    <p>Ship</p>
+    <p></p>
   </div>
 </app-header>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="data-header">Add alien ship</div>
+  </div>
+</div>
+<div class="container">
+  <form [formGroup]="shipForm">
+    <div class="row form-group justify-content-center">
+      <div class="col-sm-12">
+        <table class="cs-table table table-striped" cellpadding="20" cellspacing="20" >
+          <thead>
+          <tr>
+          </tr>
+          </thead>
+        </table>
+        <tbody>
+        <tr>
+          <td>
+            <button (click)="addShipByName('smallscout')" type="submit" class="btn btn-primary">Small scout
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('mediumscout')" type="submit" class="btn btn-primary ">Medium scout
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('largescout')" type="submit" class="btn btn-primary ">Large scout
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('abductor')" type="submit" class="btn btn-primary ">Abductor
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('harvester')" type="submit" class="btn btn-primary ">Harvester
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('terrorship')" type="submit" class="btn btn-primary ">Terror ship
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('supplyship')" type="submit" class="btn btn-primary ">Supply ship
+            </button>
+          </td>
+          <td>
+            <button (click)="addShipByName('battleship')" type="submit" class="btn btn-primary ">Battleship
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </div>
+    </div>
+  </form>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -38,98 +93,4 @@
     </div>
   </div>
 </div>
-<p class="data-header">Add ship</p>
-<div class="data-container">
-  <form [formGroup]="shipForm">
-    <div class="row form-group">
-      <div class="col-md-4">
-        <label>Name</label>
-        <input formControlName="name" type="text" class="form-control" placeholder="name">
-        <p *ngIf="!shipForm.get('name').valid && shipForm.get('name').dirty" class="error">This field is required</p>
-      </div>
-      <div class="col-md-4">
-        <label>Size</label>
-        <input formControlName="size" type="text" class="form-control" placeholder="size">
-        <p *ngIf="!shipForm.get('size').valid && shipForm.get('size').dirty" class="error">This field is required</p>
-      </div>
-      <div class="col-md-4">
-        <label>Max speed</label>
-        <input formControlName="maxSpeed" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('maxSpeed').valid && shipForm.get('maxSpeed').dirty" class="error">This field is
-          required</p>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col-md-4">
-        <label>Weapon power</label>
-        <input formControlName="weaponPower" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('weaponPower').valid && shipForm.get('weaponPower').dirty" class="error">This field is
-          required</p>
-      </div>
-      <div class="col-md-4">
-        <label>weapon Range Km</label>
-        <input formControlName="weaponRangeKm" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('weaponRangeKm').valid && shipForm.get('weaponRangeKm').dirty" class="error">This field
-          is required</p>
-      </div>
-      <div class="col-md-4">
-        <label>weaponRangeUnits</label>
-        <input formControlName="weaponRangeUnits" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('weaponRangeUnits').valid && shipForm.get('weaponRangeUnits').dirty" class="error">This
-          field is required</p>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col-md-4">
-        <label>Damage</label>
-        <input formControlName="damageCapacity" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('damageCapacity').valid && shipForm.get('DamageCapacity').dirty" class="error">This
-          field is required</p>
-      </div>
-      <div class="col-md-4">
-        <label>Downed</label>
-        <input formControlName="downedPoints" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('downedPoints').valid && shipForm.get('downedPoints').dirty" class="error">This field is
-          required</p>
-      </div>
-      <div class="col-md-4">
-        <label>Destroyed</label>
-        <input formControlName="destroyedPoints" type="text" class="form-control" placeholder="0">
-        <p *ngIf="!shipForm.get('destroyedPoints').valid && shipForm.get('destroyedPoints').dirty" class="error">This
-          field is required</p>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col-md-4">
-        <label>Escape Time</label>
-        <input formControlName="escapeTime" type="text" class="form-control" placeholder="escapetime">
-        <p *ngIf="!shipForm.get('escapeTime').valid && shipForm.get('escapeTime').dirty" class="error">This
-          field is required</p>
-      </div>
-      <div class="col-md-4">
-        <label>Firing Interval</label>
-        <input formControlName="firingInterval" type="text" class="form-control" placeholder="firinginterval">
-        <p *ngIf="!shipForm.get('firingInterval').valid && shipForm.get('firingInterval').dirty" class="error">This field is
-          required</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <button [disabled]="shipForm.invalid" (click)="addShip()" type="submit" class="btn btn-primary float-right">
-          Add ship
-        </button>
-        <button (click)="shipForm.reset()" class="btn btn-default float-right">Reset</button>
-      </div>
-    </div>
-  </form>
-  <!--<pre> {{shipForm.value | json}}</pre>-->
-  <!--<pre> stan walidacji name: {{shipForm.get('name').valid | json}}</pre>-->
-  <!--<pre> stan walidacji size: {{shipForm.get('size').valid | json}}</pre>-->
-  <!--<pre> stan walidacji max speed: {{shipForm.get('maxSpeed').valid | json}}</pre>-->
-  <!--<pre> stan walidacji weapon power: {{shipForm.get('weaponPower').valid | json}}</pre>-->
-  <!--<pre> stan walidacji weapon range km: {{shipForm.get('weaponRangeKm').valid | json}}</pre>-->
-  <!--<pre> stan walidacji weapon range units: {{shipForm.get('weaponRangeUnits').valid | json}}</pre>-->
-  <!--<pre> stan walidacji damage capacity: {{shipForm.get('damageCapacity').valid | json}}</pre>-->
-  <!--<pre> stan walidacji downed points: {{shipForm.get('downedPoints').valid | json}}</pre>-->
-  <!--<pre> stan walidacji destroyed points: {{shipForm.get('destroyedPoints').valid | json}}</pre>-->
-</div>
+

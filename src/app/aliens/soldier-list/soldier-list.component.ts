@@ -58,6 +58,11 @@ export class SoldierListComponent implements OnInit {
       this.loadSoldiers();
     });
   }
+  addRandomSoldier(rank) {
+    this.soldierService.addRandomSoldierByRank(rank).subscribe(() => {
+      this.loadSoldiers();
+    });
+  }
 
   gotoSoldierDetails(soldier: Soldier) {
     this.router.navigate(['/soldiers', soldier.id]);

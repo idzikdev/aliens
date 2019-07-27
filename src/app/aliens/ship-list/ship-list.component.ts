@@ -52,6 +52,12 @@ export class ShipListComponent implements OnInit {
     });
   }
 
+  addShipByName(name) {
+    this.shipService.addShipByName(name).subscribe(() => {
+      this.loadShips();
+    });
+  }
+
   gotoShipDetails(ship: Ship) {
     this.router.navigate(['/ships', ship.id]);
   }
