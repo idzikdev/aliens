@@ -11,9 +11,12 @@ import { ShipDetailsComponent } from './ship-details/ship-details.component';
 import {ShipResolveService} from './ship-resolve.service';
 import { SoldierListComponent } from './soldier-list/soldier-list.component';
 import { SoldierDetailsComponent } from './soldier-details/soldier-details.component';
+import { CraftDetailsComponent } from './craft-details/craft-details.component';
+import { CraftListComponent } from './craft-list/craft-list.component';
+import {CraftResolveService} from './craft-resolve.service';
 
 @NgModule({
-  declarations: [AlienListComponent, AlienDetailsComponent, ShipListComponent, ShipDetailsComponent, ShipDetailsComponent, SoldierListComponent, SoldierDetailsComponent],
+  declarations: [AlienListComponent, AlienDetailsComponent, ShipListComponent, ShipDetailsComponent, ShipDetailsComponent, SoldierListComponent, SoldierDetailsComponent, CraftDetailsComponent, CraftListComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -21,6 +24,6 @@ import { SoldierDetailsComponent } from './soldier-details/soldier-details.compo
     ReactiveFormsModule
   ],
   exports: [AlienListComponent],
-  providers: [AlienResolveService, ShipResolveService]
+  providers: [AlienResolveService, ShipResolveService, CraftResolveService]
 })
 export class AliensModule { }
