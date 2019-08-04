@@ -14,6 +14,8 @@ export class SoldierListComponent implements OnInit {
 
   soldiers: Soldier[] = [];
   soldierForm: FormGroup;
+  imageToShow: any;
+  isImageLoading: any;
 
   constructor(private soldierService: SoldiersService,
               private formBuilder: FormBuilder,
@@ -23,7 +25,7 @@ export class SoldierListComponent implements OnInit {
   ngOnInit() {
     this.loadSoldiers();
     this.soldierForm = this.buildSoldierForm();
-
+    this.getImageFromService('colonel');
   }
 
   buildSoldierForm() {
@@ -72,6 +74,28 @@ export class SoldierListComponent implements OnInit {
     event.stopPropagation();
     this.soldierService.removeSoldier(soldier.id).subscribe(() => {
       this.loadSoldiers();
+    });
+  }
+
+  createImageFromBlob(image: Blob) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      this.imageToShow = reader.result;
+    }, false);
+
+    if (image) {
+      reader.readAsDataURL(image);
+    }
+  }
+
+  getImageFromService(rank: string) {
+    this.isImageLoading = true;
+    this.soldierService.getImage(rank).subscribe(data => {
+      this.createImageFromBlob(data);
+      this.isImageLoading = false;
+    }, error => {
+      this.isImageLoading = false;
+      console.log(error);
     });
   }
 
