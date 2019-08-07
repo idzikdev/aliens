@@ -99,4 +99,8 @@ export class SoldierListComponent implements OnInit {
     });
   }
 
+  deleteAllSoldiers() {
+    this.soldierService.deleteAll().subscribe(() =>
+      this.loadSoldiers());
+  }
 }

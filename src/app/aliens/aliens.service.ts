@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, pipe} from 'rxjs';
 import {Alien} from './models/alien';
 import {map} from 'rxjs/operators';
 
@@ -41,6 +41,11 @@ export class AliensService {
 
   removeAlien(id: number): Observable<Alien> {
     return this.http.delete(this.apiUrl + `/${id}`)
+      .pipe(map((res) => res as Alien));
+  }
+
+  deleteAll(): Observable<Alien> {
+    return this.http.delete(this.apiUrl)
       .pipe(map((res) => res as Alien));
   }
 }

@@ -84,4 +84,9 @@ export class AlienListComponent implements OnInit {
       this.loadAliens();
     });
   }
+
+  deleteAllAliens() {
+    this.alienService.deleteAll().subscribe(() =>
+    this.loadAliens());
+  }
 }

@@ -67,4 +67,8 @@ export class CraftListComponent implements OnInit {
     });
   }
 
+  deleteAllCraft() {
+    this.craftService.deleteAll().subscribe(() =>
+      this.loadCrafts());
+  }
 }

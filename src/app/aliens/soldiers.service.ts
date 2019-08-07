@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Soldier} from './models/soldier';
+import {Alien} from './models/alien';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,10 @@ export class SoldiersService {
   getImage(rank: string): Observable<Blob> {
    // const httpParams = new HttpParams().set('rank', rank);
     return this.http.get(this.apiRanks + `/${rank}`, { responseType: 'blob'} );
+  }
+
+  deleteAll(): Observable<Soldier> {
+    return this.http.delete(this.apiUrl)
+      .pipe(map((res) => res as Soldier));
   }
 }

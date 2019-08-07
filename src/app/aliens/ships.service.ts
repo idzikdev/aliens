@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Ship} from './models/ship';
+import {Alien} from './models/alien';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,11 @@ export class ShipsService {
 
   removeShip(id: number): Observable<Ship> {
     return this.http.delete(this.apiUrl + `/${id}`)
+      .pipe(map((res) => res as Ship));
+  }
+
+  deleteAll(): Observable<Ship> {
+    return this.http.delete(this.apiUrl)
       .pipe(map((res) => res as Ship));
   }
 }

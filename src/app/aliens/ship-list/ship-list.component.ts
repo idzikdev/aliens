@@ -68,4 +68,9 @@ export class ShipListComponent implements OnInit {
       this.loadShips();
     });
   }
+
+  deleteAllShips() {
+    this.shipService.deleteAll().subscribe(() =>
+      this.loadShips());
+  }
 }

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Ship} from './models/ship';
 import {map} from 'rxjs/operators';
 import {Craft} from './models/craft';
+import {Alien} from './models/alien';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,10 @@ export class CraftService {
   removeCraft(id: number): Observable<Ship> {
     return this.http.delete(this.apiUrl + `/${id}`)
       .pipe(map((res) => res as Ship));
+  }
+
+  deleteAll(): Observable<Craft> {
+    return this.http.delete(this.apiUrl)
+      .pipe(map((res) => res as Craft));
   }
 }
