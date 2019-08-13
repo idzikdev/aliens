@@ -2,6 +2,7 @@ export interface Soldier {
   id: number;
   name: string;
   rank: string;
+  nationality: string;
   timeUnits: number;
   energy: number;
   health: number;

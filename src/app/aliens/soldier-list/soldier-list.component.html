@@ -63,6 +63,7 @@
         <tr>
           <th>name</th>
           <th>rank</th>
+          <th>nationality</th>
           <th>armour</th>
           <th>missions</th>
           <th>killed</th>
@@ -73,6 +74,7 @@
         <tr *ngFor="let soldier of soldiers" class="row-ship" (click)="gotoSoldierDetails(soldier)">
           <td>{{soldier.name}}</td>
           <td><img width="70" height="75" src="http://54.37.138.230:8010/ranks/images/v1/{{soldier.rank}}" alt="soldier"></td>
+          <td><img width="70" height="75" src="https://www.countryflags.io/{{soldier.nationality}}/flat/64.png" alt="soldier"></td>
           <td><img width="70" height="75" src="http://54.37.138.230:8010/armours/images/v1/{{soldier.picture}}" alt="soldier"></td>
           <td>{{soldier.missions}}</td>
           <td>{{soldier.killed}}</td>
@@ -92,5 +94,5 @@
         <!--<img src="fallbackImage.png" alt="Fallbackimage">-->
       <!--</ng-template>-->
     </div>
-  </div>s
+  </div>
 </div>
