@@ -69,8 +69,8 @@
       <table *ngIf="ships && ships.length>0; else noShipsInfo" class="cs-table table table-striped">
         <thead>
         <tr>
-          <th>size</th>
           <th>name</th>
+          <th>size</th>
           <th>maxSpeed</th>
           <th>Damage</th>
           <th>picture</th>
@@ -79,8 +79,8 @@
         </thead>
         <tbody>
         <tr *ngFor="let ship of ships" class="row-ship" (click)="gotoShipDetails(ship)">
-          <td appImportant>{{ship.size}}</td>
           <td>{{ship.name}}</td>
+          <td appImportant>{{ship.size}}</td>
           <td>{{ship.maxSpeed}}</td>
           <td>{{ship.damageCapacity}}</td>
           <td><img width="150" height="100" src="http://54.37.138.230:8010/ships/images/v1/{{ship.jpg0}}" alt="ship">
